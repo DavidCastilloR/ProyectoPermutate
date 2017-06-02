@@ -1,14 +1,10 @@
-
-package java;
+package eif203.labs.permutate;
 import java.util.*;
-
+import eif203.util.*;
 
 /**
- *
- * @author Admin
- */
-    
-    
+ loriacarlos@gmail.com
+*/
 public class PermTester extends Hashtable<String, Permutation> {
 	protected int n;
 	protected int max_size;
@@ -76,10 +72,9 @@ public class PermTester extends Hashtable<String, Permutation> {
 			}
 			b.append(p.getCost() + "\n");
 		}
-		//IOServices.writeText("", filename, b.toString());   *METODO INEXISTENTE*
+		IOServices.writeText("", filename, b.toString());
 	}
 	
 }
-    
     
     

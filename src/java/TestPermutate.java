@@ -1,61 +1,61 @@
-
 package java;
+import java.Printing;
 import java.Helper;
 public class TestPermutate extends Helper{
     Permutate perm=new Permutate(this);
     
-    function test_recursive_backtracking(n){
+    public void test_recursive_backtracking(int n){
 	print('\n*** Testing recursive_backtracking ***');
 	reset();
-	var a = genArray(n);
+	String[] a = genArray(n);
 	method = BACKTRACKING;
 	permTester = new PermTester(method, n);
-	var before = cTM();
-	recursive_backtracking(a, a.length - 1, showPermutation);
-	var after = cTM();
+	long before = cTM();
+	this.perm.recursive_backtracking(a, a.length - 1,(String[] p)->(this.showPermutation(p); return null;));
+	long after = cTM();
 	print('\n*** Count of recursive_backtracking swaps = ' + swaps + " (" + (after - before) + " ms)");
 	permTester.ensureComplete();
 	
 }
 
-function test_recursive_heap_sedgewick(n){
+public void test_recursive_heap_sedgewick( int n){
 	print('\n*** Testing recursive_heap_sedgewick ***');
 	reset();
-	var a = genArray(n);
+	String[] a = genArray(n);
 	method = HEAP_SEDGEWICK;
 	permTester = new PermTester(method, n);
-	var before = cTM();
-	recursive_heap_sedgewick(a, a.length - 1, showPermutation);
-	var after = cTM();
+	long before = cTM();
+	this.perm.recursive_heap_sedgewick(a, a.length - 1, showPermutation);
+	long after = cTM();
 	print('\n*** Count of recursive_heap_sedgewick swaps = ' + swaps + " (" + (after - before) + " ms)");
 	permTester.ensureComplete();
 }
 
-function test_permutate_lexicographically(n){
+    public void test_permutate_lexicographically(int n){
 	print('\n*** Testing lexicographically ***');
 	reset();
-	var a = genArray(n);
+	String[] a = genArray(n);
 	method = LEXIC;
 	permTester = new PermTester(method, n);
-	var before = cTM();
-	permutate_lexicographically(a, showPermutation);
-	var after = cTM();
+	long before = cTM();
+	this.perm.permutate_lexicographically(a,(String[] p)->(this.showPermutation(p); return null;));
+	long after = cTM();
 	print('\n*** Count of lexicographically swaps = ' + swaps + " (" + (after - before) + " ms)");
 	permTester.ensureComplete();
 }
 
-function test_permutate_naive(n){
+function test_permutate_naive(int n){
 	print('\n*** Testing naive all_permutations ***');
 	reset();
-	var a = genArray(n);
+	String[] a = genArray(n);
 	method = NAIVE;
 	permTester = new PermTester(method, n);
-	var before = cTM();
-	var perms = permutate_naively(a);
-	for (var i = 0; i < perms.length; i++){
+	long before = cTM();
+	long perms = permutate_naively(a);
+	for (int i = 0; i < perms.length; i++){
 		showPermutation(perms[i]);
     }
-	var after = cTM();
+	long after = cTM();
 	print('\n*** Count of naive all insertions = ' + insertions + " (" + (after - before) + " ms)");
 	permTester.ensureComplete();
 	
